@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: be2fe9a9e2767144ca80d6e97b99700a
+guid: 5c1d73d053d4e484794d69bd83b22397
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Bucket
-    2100002: Etiket
-    2100004: Lid
+    2100000: Bucket2
+    2100002: Lid
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCylinder2
@@ -83,7 +82,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
