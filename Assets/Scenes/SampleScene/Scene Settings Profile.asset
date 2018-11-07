@@ -37,7 +37,7 @@ MonoBehaviour:
     max: 360
   exposure:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 5.1
   multiplier:
     m_OverrideState: 1
     m_Value: 0.02
@@ -72,7 +72,7 @@ MonoBehaviour:
     showEyeDropper: 1
   groundColor:
     m_OverrideState: 1
-    m_Value: {r: 0.1981132, g: 0.19344072, b: 0.19157173, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
