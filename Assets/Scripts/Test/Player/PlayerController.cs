@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         motor = GetComponent<PlayerMotor>();
         joint = GetComponent<ConfigurableJoint>();
         animator = GetComponent<Animator>();
