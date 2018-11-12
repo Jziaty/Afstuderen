@@ -37,7 +37,7 @@ MonoBehaviour:
     max: 360
   exposure:
     m_OverrideState: 1
-    m_Value: -5.29
+    m_Value: 2.77
   multiplier:
     m_OverrideState: 1
     m_Value: 0.02
@@ -51,7 +51,7 @@ MonoBehaviour:
     min: 0
   sunSize:
     m_OverrideState: 1
-    m_Value: 0.09
+    m_Value: 0.125
     min: 0
     max: 1
   sunSizeConvergence:
@@ -66,19 +66,19 @@ MonoBehaviour:
     max: 5
   skyTint:
     m_OverrideState: 1
-    m_Value: {r: 0.19406372, g: 0.28027108, b: 0.46226418, a: 1}
+    m_Value: {r: 1, g: 0.42291057, b: 0.16509432, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   groundColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.74956113, b: 0.6462264, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   enableSunDisk:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
 --- !u!114 &114484304340900644
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4910d90e50201484ba448b791a192696, type: 3}
   m_Name: VolumetricLightingController
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   depthRange:
     m_OverrideState: 1
     m_Value: {x: 0.01, y: 308.5077}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b00527f85bb3346a4d2cb710971587, type: 3}
   m_Name: VolumetricFog
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   colorMode:
     m_OverrideState: 1
     m_Value: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2150ee00179b2f4418ea8b21a7e98eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   colorMode:
     m_OverrideState: 1
     m_Value: 1
