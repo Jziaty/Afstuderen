@@ -21,7 +21,7 @@ public class ToggleLight : MonoBehaviour {
     {
         if(other.transform.tag == "Player")
         {
-            Debug.Log(other.transform.name + " in range.");
+            //Debug.Log(other.transform.name + " in range.");
             playerInRange = true;
         }
     }
