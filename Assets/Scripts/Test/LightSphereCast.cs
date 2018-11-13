@@ -7,6 +7,15 @@ public class LightSphereCast : MonoBehaviour {
 
     [SerializeField]
     Light spotLight;
+    
+    enum COLORLIGHT
+    {
+        RED,
+        GREEN,
+        BLUE
+    }
+    [SerializeField]
+    private COLORLIGHT colorLight = COLORLIGHT.RED;
 
     [SerializeField]
     float sphereCastRadius = 1;
@@ -27,8 +36,7 @@ public class LightSphereCast : MonoBehaviour {
     void Update()
     {
         RaycastHit hit;
-
-        // Bit shift the index of the layer (8) to get a bit mask
+        
         int layerMask = 1 << 9;
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
         if (Physics.SphereCast(transform.position, sphereCastRadius, transform.forward, out hit, sphereCastDistance, layerMask))

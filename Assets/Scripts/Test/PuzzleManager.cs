@@ -15,19 +15,21 @@ public class PuzzleManager : MonoBehaviour {
     [SerializeField]
     Color threeHit;
     public int amountHit;
+    bool puzzleSolved;
 
     void Start () {
         DontDestroyOnLoad(gameObject);
 
         if (lightBeam == null)
             lightBeam = GameObject.FindGameObjectWithTag("Instrument").transform.Find("LightBeam").GetComponent<ParticleSystem>();
-        else
-            lightBeamMain = lightBeam.main;
+
+        lightBeamMain = lightBeam.main;
     }
 
     private void Update()
     {
-        ConditionsP1();
+        if(!puzzleSolved)
+            ConditionsP1();
     }
 
     public void ConditionsP1()

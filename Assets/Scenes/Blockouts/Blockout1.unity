@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.036707275, g: 0.028795, b: 0.022025561, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3641,6 +3641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleManager: {fileID: 95877045}
   spotLight: {fileID: 724195094}
+  colorLight: 0
   sphereCastRadius: 1.5
 --- !u!114 &724195092
 MonoBehaviour:
@@ -4383,6 +4384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleManager: {fileID: 95877045}
   spotLight: {fileID: 868192483}
+  colorLight: 1
   sphereCastRadius: 1.5
 --- !u!114 &868192481
 MonoBehaviour:
@@ -9979,6 +9981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleManager: {fileID: 95877045}
   spotLight: {fileID: 1770106464}
+  colorLight: 2
   sphereCastRadius: 1.5
 --- !u!1 &1796599617
 GameObject:
