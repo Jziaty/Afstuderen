@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4910d90e50201484ba448b791a192696, type: 3}
   m_Name: VolumetricLightingController
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   depthRange:
     m_OverrideState: 1
     m_Value: {x: 0.01, y: 308.5077}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b00527f85bb3346a4d2cb710971587, type: 3}
   m_Name: VolumetricFog
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   colorMode:
     m_OverrideState: 1
     m_Value: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2150ee00179b2f4418ea8b21a7e98eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   colorMode:
     m_OverrideState: 1
     m_Value: 1

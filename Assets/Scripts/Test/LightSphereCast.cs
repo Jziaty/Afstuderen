@@ -8,7 +8,7 @@ public class LightSphereCast : MonoBehaviour {
     [SerializeField]
     Light spotLight;
     
-    enum COLORLIGHT
+    public enum COLORLIGHT
     {
         RED,
         GREEN,
@@ -31,6 +31,7 @@ public class LightSphereCast : MonoBehaviour {
             puzzleManager = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<PuzzleManager>();
 
         sphereCastDistance = spotLight.range;
+
     }
 
     void Update()
@@ -43,18 +44,31 @@ public class LightSphereCast : MonoBehaviour {
         {
             //Debug.DrawRay(transform.position, transform.forward, Color.blue);
             //Debug.Log(hit.transform.name + "Amount added?: " + amountAdded);
-            if (!amountAdded && hit.transform.CompareTag("Instrument"))
+            if (!amountAdded && spotLight.enabled && hit.transform.CompareTag("Instrument"))
             {
                 //Debug.Log("Instrument Found!");
                 AddToAmountHit();
+                //ProcessAndSendColor();
             }
             
         } else if (amountAdded && hit.transform == null)
         {
-            Debug.Log("Instrument not found");
+            //Debug.Log("Instrument not found");
             SubtractOffAmountHit();
         }
     }
+
+    //void ProcessAndSendColor()
+    //{
+    //    if (colorLight == COLORLIGHT.RED)
+    //        puzzleManager.ChangeBeamColor(new Color(255,0,0,1));
+        
+    //    if(colorLight == COLORLIGHT.GREEN)
+    //        puzzleManager.ChangeBeamColor(new Color(0, 255, 0, 1));
+
+    //    if(colorLight == COLORLIGHT.BLUE)
+    //        puzzleManager.ChangeBeamColor(new Color(0, 0, 255, 1));
+    //}
 
     void AddToAmountHit()
     {

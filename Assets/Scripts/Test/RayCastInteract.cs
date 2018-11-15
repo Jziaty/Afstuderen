@@ -25,6 +25,9 @@ public class RayCastInteract : MonoBehaviour {
             //Debug.Log("Did Hit: " + hit.transform.name);
             if (canHold && Input.GetButtonDown("Interact") && hit.transform.GetComponent<Rigidbody>())
             {
+                if (hit.transform.CompareTag("Instrument"))
+                    hit.transform.Find("LightBeam").gameObject.SetActive(true);
+
                 HoldObject(hit.transform);
                 canHold = false;
             }

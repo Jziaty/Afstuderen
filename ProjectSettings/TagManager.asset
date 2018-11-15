@@ -8,6 +8,8 @@ TagManager:
   - HardSurface
   - Instrument
   - PuzzleManager
+  - Puzzle1Target
+  - GameManager
   layers:
   - Default
   - TransparentFX

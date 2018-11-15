@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         Vector3 _velocity = (_movHorizontal + _movVertical) * speed;
 
         // Animate movement
-        animator.SetFloat("ForwardVelocity", _zMov);
+        //animator.SetFloat("ForwardVelocity", _zMov);
 
         //Apply movement
         motor.Move(_velocity);

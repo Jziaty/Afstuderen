@@ -5,6 +5,12 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour {
 
     [Header("Puzzle 1")]
+    public int amountHit;
+    public bool puzzleSolved;
+
+    GameObject instrument;
+    Light beamLight;
+
     [SerializeField]
     ParticleSystem lightBeam;
     ParticleSystem.MainModule lightBeamMain;
@@ -14,8 +20,9 @@ public class PuzzleManager : MonoBehaviour {
     Color twoHit;
     [SerializeField]
     Color threeHit;
-    public int amountHit;
-    bool puzzleSolved;
+
+    //[SerializeField]
+    //Color beamColor;
 
     void Start () {
         DontDestroyOnLoad(gameObject);
@@ -23,34 +30,73 @@ public class PuzzleManager : MonoBehaviour {
         if (lightBeam == null)
             lightBeam = GameObject.FindGameObjectWithTag("Instrument").transform.Find("LightBeam").GetComponent<ParticleSystem>();
 
+        if (instrument == null)
+            instrument = lightBeam.transform.parent.gameObject;
+
+        if (beamLight == null)
+            beamLight = lightBeam.transform.Find("Point Light").GetComponent<Light>();
+
+        beamLight.gameObject.SetActive(false);
+
         lightBeamMain = lightBeam.main;
     }
 
     private void Update()
     {
-        if(!puzzleSolved)
+        if (!puzzleSolved)
             ConditionsP1();
+        else
+            FinishP1();
     }
+
+    //public void ChangeBeamColor(Color color)
+    //{
+        //FAILED ATTEMPT TO COMBINE COLORS.
+        //Vector4 _color = new Vector4(color.r, color.g, color.b, color.a);
+        //Vector4 _beamColor = new Vector4(beamColor.r, beamColor.g, beamColor.b, beamColor.a);
+
+        //Vector4 _result = _color + _beamColor;
+        //Color _resultColor = new Color(_result.x, _result.y, _result.z, _result.w);
+
+        //lightBeamMain.startColor = _resultColor;
+    //}
 
     public void ConditionsP1()
     {
         switch (amountHit)
         {
             case 0: lightBeam.Stop();
+                    beamLight.gameObject.SetActive(false);
                     break;
 
             case 1: lightBeam.Play();
-                    lightBeamMain.startColor = oneHit;
+                    beamLight.gameObject.SetActive(true);
+                    beamLight.color = Color.red;
+                    //lightBeamMain.startColor = oneHit;
                     break;
 
             case 2: lightBeam.Play();
-                    lightBeamMain.startColor = twoHit;
+                    beamLight.color = Color.yellow;
+                    //lightBeamMain.startColor = twoHit;
                     break;
 
             case 3: lightBeam.Play();
-                    lightBeamMain.startColor = threeHit;
-                    // Open the door and notice the player he completed the puzzle.
+                    beamLight.color = Color.green;
+                    instrument.GetComponent<RaycastLightBeam>().startRaycast = true;
+                    //lightBeamMain.startColor = threeHit;
                     break;
         }
+    }
+
+    private void FinishP1()
+    {
+        StartCoroutine(StopLightBeam());
+    }
+
+    IEnumerator StopLightBeam()
+    {
+        yield return new WaitForSeconds(2);
+        lightBeam.Stop();
+        beamLight.enabled = false;
     }
 }
