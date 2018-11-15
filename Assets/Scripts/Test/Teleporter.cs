@@ -9,9 +9,9 @@ public class Teleporter : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Player")
+        if(other.tag == "Player")
         {
-            other.transform.position = targetLocation.position;
+            other.transform.parent.parent.GetComponent<PlayerController>().TeleportPlayer(targetLocation.position);
         }
     }
 }

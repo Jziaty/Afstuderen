@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: NaN, g: NaN, b: NaN, a: 1}
+  m_IndirectSpecularColor: {r: 0.021202728, g: 0.020716457, b: 0.017926306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7434,7 +7434,7 @@ GameObject:
   - component: {fileID: 1449556152}
   - component: {fileID: 1449556151}
   - component: {fileID: 1449556150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ceiling
   m_TagString: HardSurface
   m_Icon: {fileID: 0}
@@ -10412,7 +10412,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh19766
+  m_Name: pb_Mesh10428
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -12109,7 +12109,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1

@@ -5,7 +5,6 @@
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour
 {
-
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
@@ -147,6 +146,11 @@ public class PlayerController : MonoBehaviour
             positionSpring = _jointSpring,
             maximumForce = jointMaxForce
         };
+    }
+
+    public void TeleportPlayer(Vector3 targetpos)
+    {
+        transform.position = targetpos;
     }
 
 }
