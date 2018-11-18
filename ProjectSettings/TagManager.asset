@@ -10,6 +10,8 @@ TagManager:
   - PuzzleManager
   - Puzzle1Target
   - GameManager
+  - Logs
+  - PuzzleReward
   layers:
   - Default
   - TransparentFX

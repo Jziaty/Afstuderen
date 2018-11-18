@@ -6,7 +6,7 @@ public class PuzzleManager : MonoBehaviour {
 
     [Header("Puzzle 1")]
     public int amountHit;
-    public bool puzzleSolved;
+    public bool puzzle1Solved;
 
     GameObject instrument;
     Light beamLight;
@@ -21,8 +21,16 @@ public class PuzzleManager : MonoBehaviour {
     [SerializeField]
     Color threeHit;
 
-    //[SerializeField]
-    //Color beamColor;
+    [Header("Puzzle 2")]
+    public bool puzzle2Solved;
+    public bool hitByLight;
+    
+    [SerializeField]
+    RaycastLightBeamP2 instrument2Ray;
+    [SerializeField]
+    GameObject door;
+    [SerializeField]
+    ParticleSystem lightBeamP2;
 
     void Start () {
         DontDestroyOnLoad(gameObject);
@@ -43,23 +51,16 @@ public class PuzzleManager : MonoBehaviour {
 
     private void Update()
     {
-        if (!puzzleSolved)
+        if (!puzzle1Solved)
             ConditionsP1();
         else
             FinishP1();
+
+        if (!puzzle2Solved && puzzle1Solved)
+            ConditionsP2();
+        else if(puzzle2Solved)
+            FinishP2();
     }
-
-    //public void ChangeBeamColor(Color color)
-    //{
-        //FAILED ATTEMPT TO COMBINE COLORS.
-        //Vector4 _color = new Vector4(color.r, color.g, color.b, color.a);
-        //Vector4 _beamColor = new Vector4(beamColor.r, beamColor.g, beamColor.b, beamColor.a);
-
-        //Vector4 _result = _color + _beamColor;
-        //Color _resultColor = new Color(_result.x, _result.y, _result.z, _result.w);
-
-        //lightBeamMain.startColor = _resultColor;
-    //}
 
     public void ConditionsP1()
     {
@@ -91,6 +92,51 @@ public class PuzzleManager : MonoBehaviour {
     private void FinishP1()
     {
         StartCoroutine(StopLightBeam());
+    }
+
+    void ConditionsP2()
+    {
+        if (lightBeamP2 == null)
+        {
+            lightBeamP2 = FindObjectOfType<RaycastLightBeamP2>().transform.Find("LightBeam").GetComponent<ParticleSystem>();
+        }
+
+        if (hitByLight)
+        {
+            if(!lightBeamP2.isPlaying)
+                lightBeamP2.Play();
+
+            if (instrument2Ray != null)
+            {
+                instrument2Ray.startRaycast = true;
+            }
+            else
+            {
+                instrument2Ray = FindObjectOfType<RaycastLightBeamP2>();
+            }
+        } else if (puzzle1Solved && !puzzle2Solved)
+        {
+            if (lightBeamP2.isPlaying)
+                lightBeamP2.Stop();
+
+            if (instrument2Ray != null)
+                instrument2Ray.startRaycast = false;
+        } else
+        {
+            if (lightBeamP2.isPlaying)
+                lightBeamP2.Stop();
+        }
+    }
+
+    void FinishP2()
+    {
+        if(lightBeamP2.isPlaying)
+            lightBeamP2.Stop();
+
+        if (door != null)
+            door.SetActive(false);
+        else
+            door = GameObject.FindGameObjectWithTag("PuzzleReward");
     }
 
     IEnumerator StopLightBeam()

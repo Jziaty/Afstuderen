@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaycastLightBeam : MonoBehaviour {
+public class RaycastLightBeamP2 : MonoBehaviour {
 
     public bool startRaycast;
 
     PuzzleManager puzzleManager;
 
     [SerializeField]
-    GameObject door;
+    GameObject flame;
 
     private void Start()
     {
@@ -27,10 +27,10 @@ public class RaycastLightBeam : MonoBehaviour {
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.magenta);
                 //Debug.Log("Did Hit: " + hit.transform.name);
-                if (hit.transform.CompareTag("Puzzle1Target"))
+                if (hit.transform.CompareTag("Logs"))
                 {
-                    door.SetActive(false);
-                    puzzleManager.puzzle1Solved = true;
+                    flame.SetActive(true);
+                    puzzleManager.puzzle2Solved = true;
                     startRaycast = false;
                 }
             }

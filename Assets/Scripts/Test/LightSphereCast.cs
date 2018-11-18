@@ -44,17 +44,25 @@ public class LightSphereCast : MonoBehaviour {
         {
             //Debug.DrawRay(transform.position, transform.forward, Color.blue);
             //Debug.Log(hit.transform.name + "Amount added?: " + amountAdded);
-            if (!amountAdded && spotLight.enabled && hit.transform.CompareTag("Instrument"))
+            if (!puzzleManager.puzzle1Solved && !amountAdded && spotLight.enabled && hit.transform.CompareTag("Instrument"))
             {
                 //Debug.Log("Instrument Found!");
                 AddToAmountHit();
                 //ProcessAndSendColor();
             }
+
+            if(puzzleManager.puzzle1Solved && !puzzleManager.puzzle2Solved && spotLight.enabled && hit.transform.CompareTag("Instrument"))
+            {
+                puzzleManager.hitByLight = true;
+            }
             
-        } else if (amountAdded && hit.transform == null)
+        } else if (!puzzleManager.puzzle1Solved && amountAdded && hit.transform == null)
         {
             //Debug.Log("Instrument not found");
             SubtractOffAmountHit();
+        } else if (!puzzleManager.puzzle2Solved && hit.transform == null)
+        {
+            puzzleManager.hitByLight = false;
         }
     }
 
