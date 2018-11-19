@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{C837BDD1-C02B-0A05-E7C4-11C2B66ACFB6}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/NewNextHall.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Test/PuzzleManager.cs" Line="8" Column="29" />
+      <File FileName="Assets/Scripts/CustomParticleCulling.cs" Line="44" Column="6" />
+      <File FileName="Assets/Scripts/Scene Management/UnloadSceneOnTrigger.cs" Line="18" Column="39" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="38" Column="1" />
+      <File FileName="Assets/HallManager.cs" Line="15" Column="42" />
+      <File FileName="Assets/NewNextHall.cs" Line="23" Column="45" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

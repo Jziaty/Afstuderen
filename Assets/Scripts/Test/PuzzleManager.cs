@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour {
 
+    private float timer = 0f;
+    private float delay = .5f;
+
     [Header("Puzzle 1")]
     public int amountHit;
     public bool puzzle1Solved;
@@ -51,6 +54,30 @@ public class PuzzleManager : MonoBehaviour {
 
     private void Update()
     {
+        timer += Time.fixedDeltaTime;
+
+        if(timer >= delay){
+            if (!puzzle1Solved)
+                ConditionsP1();
+            else
+                FinishP1();
+
+            if (!puzzle2Solved && puzzle1Solved)
+                ConditionsP2();
+            else if (puzzle2Solved)
+                FinishP2();
+
+            timer = 0f;
+        }
+    }
+
+    IEnumerator WaitToCheckPuzzles(){
+        yield return new WaitForSeconds(2);
+        CheckPuzzles();
+    }
+
+    private void CheckPuzzles()
+    {
         if (!puzzle1Solved)
             ConditionsP1();
         else
@@ -58,7 +85,7 @@ public class PuzzleManager : MonoBehaviour {
 
         if (!puzzle2Solved && puzzle1Solved)
             ConditionsP2();
-        else if(puzzle2Solved)
+        else if (puzzle2Solved)
             FinishP2();
     }
 
